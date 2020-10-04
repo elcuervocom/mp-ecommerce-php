@@ -1,6 +1,6 @@
 <?php
 
-$data = $_SERVER['QUERY_STRING'];
+$data = "dsaada";
 
 //-----------SAVE DATA---------------
 $fp = fopen('notification.txt', 'w');
