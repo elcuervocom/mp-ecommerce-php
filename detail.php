@@ -39,7 +39,7 @@ $preference->payment_methods = array(
     "installments" => 6
   );
 
-$preference->notification_url = $heroku.'notification.php';
+$preference->notification_url = "http://www.slide.com.ar/notification.php';
 
 $preference->save();
 
