@@ -58,6 +58,8 @@ $preference->payment_methods = array(
       "zip_code" => "1111"
   );
 
+$preference->payer = $payer;
+
 $preference->auto_return = 'approved';
 $preference->notification_url = "http://www.slide.com.ar/notification.php";
 
