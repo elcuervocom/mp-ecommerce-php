@@ -1,5 +1,5 @@
 <?php
-$collection_id="10480226403";
+$collection_id="10482055077";
 $type="payment";
 
 // SDK de Mercado Pago

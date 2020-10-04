@@ -17,7 +17,7 @@ $item->title = $_POST['title'];
 $item->quantity = $_POST['unit'];
 $item->unit_price = $_POST['price'];
 $item->id = "1234";
-$item->descripton = "Dispositivo móvil de Tienda e-commerce";
+$item->description = "Dispositivo móvil de Tienda e-commerce";
 $item->picture_url = $heroku.str_replace("./","",$_POST['img']);
 $preference->items = array($item);
 
@@ -39,7 +39,27 @@ $preference->payment_methods = array(
     "installments" => 6
   );
 
-$preference->notification_url = "http://www.slide.com.ar/notification.php';
+  $payer = new MercadoPago\Payer();
+  $payer->name = "Lalo";
+  $payer->surname = "Landa";
+  $payer->email = "test_user_63274575@testuser.com";
+  $payer->identification = array(
+      "type" => "DNI",
+      "number" => "22333444"
+  );
+  $payer->phone = array(
+      "area_code" => "11",
+      "number" => "22223333"
+  );
+  
+  $payer->address = array(
+      "street_name" => "Falsa",
+      "street_number" => 123,
+      "zip_code" => "1111"
+  );
+
+$preference->auto_return = 'approved';
+$preference->notification_url = "http://www.slide.com.ar/notification.php";
 
 $preference->save();
 
@@ -181,11 +201,8 @@ $preference->save();
                                             <?php echo $_POST['unit'] ?>
                                         </h3>
                                     </div>
-                                    <a href="<?php echo $preference->init_point; ?>" data-elements-color="#ff0000" class="mercadopago-button">Pagar la compra</a>
-                                    <script
-                                    src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                                    data-preference-id="<?php echo $preference->id; ?>" data-elements-color="#ff0000">
-                                    </script>
+                                    <a href="<?php echo $preference->init_point; ?>" data-elements-color="#ff0000" class="mercadopago-button" style="padding:10px">Pagar la compra</a>
+                                    
                                 </div>
                             </div>
                         </div>
